@@ -1,0 +1,129 @@
+@import '../../mixins/mixins.scss';
+
+// Modal
+
+.sign-wrapper {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    // Display flex bolishi kerak
+    display: none;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+.sign-wrapper--active {
+    display: flex;
+}
+.sign-up-modal {
+    width: 750px;
+    height: 800px;
+    display: flex;
+    justify-content: center;
+    background-color: #fff;
+}
+.sign-up-wrapper {
+    width: 670px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center
+}
+.sign-up__title {
+    @include Bold-font;
+    margin-bottom: 35px;
+    margin-top: 43px;
+}
+.sign-up__input {
+    width: 670px;
+    padding: 23px 20px;
+    margin: 0 0 25px;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    border-radius: 6px;
+    &:nth-child(3) {
+        margin-bottom: 30px;
+    }
+    &:nth-child(1) {
+        margin-bottom: 64px;
+    }
+}
+.date-input {
+    margin-top: 0;
+}
+.sign-up__btn {
+    width: 670px;
+    color: #fff;
+    border: none;
+    border-radius: 76px;
+    padding: 18px;
+    background-color: #1DA1F2;
+}
+.date-info {
+    @include Bold-font;
+    font-size: 18px;
+    margin-bottom: 10px;
+    margin-top: 40px;
+}
+.data-des {
+    @include Normal-font;
+    opacity: .6;
+    margin-bottom: 20px;
+    margin-top: 0;
+}
+.switcher-link {
+    color: #1DA1F2;
+}
+.logo-img {
+    margin-top: 30px;
+}
+
+// Global
+
+.sign-container {
+    max-width: 1920px;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.wrapper {
+    width: calc(590px+178px);
+    height: 638px;
+}
+.sign-section {
+    display: block;
+    width: 403px;
+}
+.sign-span {
+    display: flex;
+    align-items: center;
+}
+.modal-open {
+    border: none;
+    background: none;
+    margin-bottom: 14px;
+}
+.global-title{
+    @include Normal-font;
+    font-weight: 900;
+    font-size: 84px;
+    margin: 0 0 78px;
+}
+.back-img {
+    max-width: 1121px;
+    width: 50%;
+}
+.global-logo-img {
+    margin-bottom: 57px;
+    margin-top: 0;
+}
+.global-info{
+    @include Normal-font;
+    font-weight: 900;
+    font-size: 42px;
+    margin: 0 0 64px;
+}

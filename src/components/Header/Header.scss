@@ -1,0 +1,121 @@
+@import '../../mixins/mixins.scss';
+
+.header__wrapper {
+    display: flex;
+    justify-content: space-between;
+}
+.haeder__nav {
+    width: 268px+170px;
+    padding: 31px 15px 0 155px; 
+    background-color: #fff;
+}
+.Header__nav-link {
+    @include Normal-font;
+    color: #000;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    .item-img--active {
+        display: none;
+    }
+    .item-img {
+        display: block;
+    }
+}
+.item-img, .item-img--active {
+    margin-right: 20px;
+}
+.Header__nav-link--active {
+    font-weight: 700;
+    .item-img--active {
+        display: block;
+    }
+    .item-img {
+        display: none;
+    }
+}
+.header__tweet-btn {
+    width: 100%;
+}
+.header-logo-img {
+    width: 40px;
+}
+.header__list {
+    width: 268px;
+    list-style: none;
+    padding: 0;
+    margin: 49px 0 0;
+    display: flex;
+    flex-direction: column;
+    height: 820px;
+}
+.header__list-item {
+    margin-bottom: 30px;
+}
+.header-profile {
+    display: flex;
+    align-items: center;
+    margin-top: auto;
+    margin-bottom: 20px;
+}
+.profile-img {
+    border-radius: 50%;
+    margin-right: 10px;
+}
+.profile-name {
+    margin: 0;
+    @include Normal-font;
+}
+.profile-link {
+    margin: 0;
+    @include Normal-font;
+    opacity: .6;
+    font-weight: 400;
+}
+
+//suggest qismi
+
+.suggest-wrapper {
+    width: 373px;
+    display: flex;
+    flex-direction: column;
+}
+.suggest-input {
+    padding: 15px;
+    border-radius: 30px;
+    background-color: #EFF3F4;
+    border: none;
+    margin: 20px 0;
+    color: #5C6C79;
+}
+.suggest-profile-wrapper {
+    background-color: #F7F9F9;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    padding: 20px 15px;
+}
+.suggest-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.suggest-profile {
+    width: 358px;
+    margin: 25px auto;
+}
+.follow-btn {
+    background-color: #000;
+    border-radius: 50px;
+    color: #fff;
+    padding: 10px 18px;
+    border: none;
+    margin-left: auto;
+}
+.suggest-title {
+    margin: 0 0 25px;
+}
+.show-more-btn {
+    border: none;
+    background: none;
+    color: #1DA1F2;
+}
