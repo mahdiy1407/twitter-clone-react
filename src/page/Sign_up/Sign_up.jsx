@@ -12,16 +12,23 @@ function Login() {
     const emailInput = useRef()
     const passwordInput = useRef()
     const dateInput = useRef()
+    const userInput = useRef()
 
     function onSubmit(e) {
         e.preventDefault()
 
         const obj = {
+            id: userInput.current.value,
+            userName: userInput.current.value,
             email: emailInput.current.value,
             password: passwordInput.current.value,
-            date: dateInput.current.value
+            date: dateInput.current.value,
+            massage: []
         }
         Data.push(obj)
+        Data.map(e => {
+            window.localStorage.setItem("data", JSON.stringify(e))
+        })
 
         setToken(obj)
     }
@@ -34,7 +41,6 @@ function modalOpener() {
 function modalClose(e) {
     e.target.classList.remove('sign-wrapper--active')
 }
-
     return (
         <>  
         {/* Global Page */}
@@ -70,9 +76,9 @@ function modalClose(e) {
                         <img className='logo-img' src="./img/twitter-logo.png" alt="logo" />
                         <div className="date-input-wrapper">
                         <h2 className="sign-up__title">Create an account</h2>
+                        <input className='sign-up__input' placeholder='User name' ref={userInput} type="text" required />
                         <input className='sign-up__input' placeholder='Email' ref={emailInput} type="email" required />
-                        <input className='sign-up__input' placeholder='Password' ref={passwordInput} type="password" required />
-                        <Link to='' className='switcher-link'>Use email</Link>
+                        <input className='sign-up__input' placeholder='Password...' ref={passwordInput} type="password" required />
                         <h3 className='date-info'>Date of birth</h3>
                         <p className='data-des'>Facilisi sem pulvinar velit nunc, gravida scelerisque amet nibh sit. Quis bibendum ante phasellus metus, magna lacinia sed augue. Odio enim nascetur leo mauris vel eget. Pretium id ullamcorper blandit viverra dignissim eget tellus. Nibh mi massa in molestie a sit. Elit congue.</p>
                         <input className='sign-up__input date-input' type="date" ref={dateInput} required />

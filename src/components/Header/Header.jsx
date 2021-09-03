@@ -1,14 +1,21 @@
 import './Header.scss'
 import { NavLink } from 'react-router-dom'
 import useAuth from '../../hooks/useAuth';
-import Data from '../../data';
-console.log(Data);
+import { useEffect, useRef } from 'react';
 
 function Header({ children }) {
-    const [setToken] = useAuth(false)
+    const userName = useRef()
+    const email = useRef()
+    
+    useEffect(() => {
+        const userData = JSON.parse(window.localStorage.getItem('data'))
+        
+        userName.current.textContent = userData.userName
+        email.current.textContent = userData.email
+    }, [userName, email])
 
     return (
-            <div className="header__wrapper">
+            <div className="header__wrapper" email={email} username={userName}>
                 <header>
                     <nav className='haeder__nav'>
                         <NavLink to='/'>
@@ -101,8 +108,8 @@ function Header({ children }) {
                             <li className='header-profile'>
                                 <img className='profile-img' src="https://picsum.photos/50/50" alt="" />
                                 <span>
-                                    <h3 className='profile-name'>Name</h3>
-                                    <p className='profile-link'>@example.com</p>
+                                    <h3 ref={userName} className='profile-name'>Name</h3>
+                                    <p ref={email} className='profile-link'>@example.com</p>
                                 </span>
                             </li>
                         </ul>
@@ -110,7 +117,7 @@ function Header({ children }) {
                 </header>
 
                 {children}
-
+                    
                 <div className="suggest-wrapper">
                     <input className='suggest-input' placeholder='Search Twitter' type="text" />
                     <div className="suggest-profile-wrapper">

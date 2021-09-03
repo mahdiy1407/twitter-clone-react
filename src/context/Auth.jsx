@@ -9,7 +9,7 @@ function Provider({ children }) {
 
     useEffect(() => {
         if (token) {
-            window.localStorage.setItem('token', JSON.stringify(token))
+            window.localStorage.setItem('token', '200')
         } else {
             window.localStorage.removeItem('token')
         }

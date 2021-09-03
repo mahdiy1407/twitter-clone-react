@@ -1,0 +1,100 @@
+@import '../../mixins/mixins.scss';
+
+.profile {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.profile-wrapper {
+    max-width: 910px;
+    width: 100%;
+    border: 1px solid rgba(0, 0, 0, .2);
+}
+.profile-big-img {
+    max-width: 910px;
+    width: 100%;
+    height: 280px;
+    background: url(https://picsum.photos/910/280) no-repeat;
+    background-size: cover;
+}
+.go-back {
+    display: flex;
+    align-items: center;
+}
+.profile-title {
+    margin: 0;
+    @include Bold-font;
+    font-size: 20px;
+}
+.info {
+    @include Normal-font;
+    opacity: 0.6;
+    margin: 0;
+}
+.back-btn {
+    border: none;
+    background: none;
+    margin: 0 40px 0 30px;
+}
+.profile__about-section {
+    position: relative;
+    padding-top: 85px;
+    margin-left: 25px;
+}
+.about-section__img {
+    position: absolute;
+    top: -70px;
+    border: 5px solid #fff;
+}
+.born-wrapper {
+    display: flex;
+}
+.profile__born {
+    margin: 15px 0 15px 5px;
+}
+.tweets-section {
+    display: flex;
+    justify-content: center;
+}
+.tweets-wrapper {
+    max-width: 801px;
+    width: 95%;
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+}
+.tweets {
+    margin: 0;
+    text-decoration: none;
+    color: #000;
+    font-size: 18px;
+    @include Normal-font;
+}
+.line {
+    width: 60px;
+    height: 5px;
+    background: #1DA1F2;
+    border-radius: 4px;
+}
+.profile-list {
+    padding: 0;
+    list-style: none;
+    margin: 0;
+}
+.profile-list-item {
+    display: flex;
+    align-items: flex-start;
+    padding: 10px 25px 20px;
+    border-bottom: 1px solid rgba(0, 0, 0, .2);
+}
+.list-item-title {
+    margin: 0;
+}
+.list-item-email {
+    margin: 0 0 0 5px;
+}
+.title-section {
+    display: flex;
+    align-items: center;
+}
