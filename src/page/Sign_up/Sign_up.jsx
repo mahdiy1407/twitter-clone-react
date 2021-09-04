@@ -26,7 +26,7 @@ function Login() {
             massage: []
         }
         Data.push(obj)
-        Data.map(e => {
+        Data.forEach(e => {
             window.localStorage.setItem("data", JSON.stringify(e))
         })
 
@@ -82,7 +82,7 @@ function modalClose(e) {
                         <h3 className='date-info'>Date of birth</h3>
                         <p className='data-des'>Facilisi sem pulvinar velit nunc, gravida scelerisque amet nibh sit. Quis bibendum ante phasellus metus, magna lacinia sed augue. Odio enim nascetur leo mauris vel eget. Pretium id ullamcorper blandit viverra dignissim eget tellus. Nibh mi massa in molestie a sit. Elit congue.</p>
                         <input className='sign-up__input date-input' type="date" ref={dateInput} required />
-                        <button className='sign-up__btn' type="submit">Login</button>
+                        <button className='sign-up__btn' type="submit">Sign up</button>
                         </div>
                     </div>
                 </form>

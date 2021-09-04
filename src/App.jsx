@@ -17,7 +17,7 @@ function App() {
     <div className="App">
       <Switch>
         <Private path='/' component={Home} exact />
-        <Private path='/profile' component={Profile} />
+        <Private path='/profile/:name' component={Profile} />
         <Public path='/login' component={Login} />
         <Public path='/sign-up' component={SignUp} />
       </Switch>

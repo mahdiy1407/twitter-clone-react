@@ -1,24 +1,14 @@
 /* Components */
-import { useRef, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import Header from '../../components/Header/Header'
 import Data from '../../data';
 import './Profile.scss'
+import useAuth from '../../hooks/useAuth';
 
 function Profile() {
-    const username = useRef()
-    const username1 = useRef()
-    const email = useRef()
-    const date = useRef()
-
-    useEffect(() => {
-        const userData = JSON.parse(window.localStorage.getItem('data'))
-        
-        username.current.textContent = userData.userName
-        username1.current.textContent = userData.userName
-        email.current.textContent = userData.email
-        date.current.textContent = userData.date
-    }, [username])
+    const { name } = useParams()
+    const [setToken] = useAuth(false)
+    const foundUser = Data.find(user => user.userName === name)
 
     return (
         <Header>
@@ -27,21 +17,26 @@ function Profile() {
                     <div className="go-back">
                         <button className='back-btn'>Back</button>
                         <span>
-                            <h3 className='profile-title' ref={username}>Name</h3>
+                            <h3 className='profile-title'>{foundUser.userName}</h3>
                             <p className='info'>1,070 Tweets</p>
                         </span>
                     </div>
                 </div>
-                <div className="profile-wrapper profile-big-img"></div>
+                <div className="profile-wrapper profile-big">
+                    <img src="https://picsum.photos/910/280" alt="background" />
+                </div>
                 <div className="profile-wrapper">
+                    <section className='log-out-section'>
+                        <button onClick={() => setToken(false)} className='log-out-btn'>Log Out</button>
+                    </section>
                     <section className='profile__about-section'>
-                        <img className='profile-img about-section__img' src="https://picsum.photos/150/150" alt="photo" />
-                        <h3 ref={username1} className='profile-title'>Name</h3>
-                        <p ref={email} className='profile-link'>@example.com</p>
+                        <img className='profile-img about-section__img' src="https://picsum.photos/id/2/150/150" alt="photo" />
+                        <h3 className='profile-title'>{foundUser.userName}</h3>
+                        <p className='profile-link'>{foundUser.email}</p>
                         <p className="profile__about">About User....</p>
                         <section className='born-wrapper'>
-                            <img src="./img/born.svg" alt="born" />
-                            <p ref={date} className="profile__born"></p>
+                            <img src="../../img/born.svg" alt="born" />
+                            <p className="profile__born">{foundUser.date}</p>
                         </section>
                     </section>
                     <section className='tweets-section'>
@@ -59,26 +54,21 @@ function Profile() {
                 <div className="profile-wrapper">
                     <ul className='profile-list'>
                         {
-                            Data.map(({massage}) => {
-                                return massage.map(e => {
+                            foundUser.massage.map(e => {
                                     return (
                                         <li className='profile-list-item'>
-                                            <img className='profile-img' src="https://picsum.photos/50/50" alt="" />
+                                            <img className='profile-img' src="https://picsum.photos/id/2/50/50" alt="profile-img" />
                                             <section>
-                                                {
-                                                    Data.map(e => {return (
-                                                        <section className="title-section">
-                                                            <h3 className='list-item-title'>{e.userName}</h3>
-                                                            <p className='list-item-email'>{e.email}</p>
-                                                        </section>
-                                                    )})
-                                                }
+                                                <section className="title-section">
+                                                    <h3 className='list-item-title'>{foundUser.userName}</h3>
+                                                    <p className='list-item-email'>{foundUser.email}</p>
+                                                </section>
                                                 <p>{e}</p>
+                                                <img src="../../img/Frame 22.png" alt="Frame 22" />
                                             </section>
                                         </li>
                                     )
                                 })
-                            })
                         }
                     </ul>
                 </div>

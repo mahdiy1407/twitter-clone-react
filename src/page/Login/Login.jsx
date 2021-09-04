@@ -12,9 +12,10 @@ function Login() {
     function submitForm(e) {
         e.preventDefault()
 
-        Data.map(e => {
+        Data.forEach(e => {
             if (e.email === emailInput.current.value && e.password === passwordInput.current.value) {
                 window.localStorage.setItem('token', JSON.stringify(e.email))
+                window.localStorage.setItem('data', JSON.stringify(e))
                 setToken(true)
             }
         })

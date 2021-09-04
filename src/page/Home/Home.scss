@@ -5,6 +5,11 @@
     flex-direction: column;
     align-items: center;
 }
+.home-wrap {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
 .home-input {
     max-width: 800px;
     width: 100%;
@@ -13,9 +18,15 @@
     border: none;
 }
 .home-wrapper {
+    padding: 15px 20px;
+}
+.tweet-wrapper {
     display: flex;
     align-items: center;
-    padding: 15px 20px;
+}
+.tweet-btn-wrapper {
+    margin-top: 22px;
+    margin-left: 70px;
 }
 .home-title {
     margin: 0 0 0 20px;

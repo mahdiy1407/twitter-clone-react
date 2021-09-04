@@ -119,3 +119,19 @@
     background: none;
     color: #1DA1F2;
 }
+.trending-info {
+    @include Normal-font;
+    opacity: 0.6;
+    margin: 0;
+}
+.trending-title {
+    @include Normal-font;
+    font-size: 20px;
+    margin: 0;
+}
+.trending-section {
+    margin: 15px 0;
+}
+.trend-title {
+    margin: 20px 0;
+}
